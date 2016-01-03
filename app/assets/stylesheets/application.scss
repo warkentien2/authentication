@@ -9,3 +9,8 @@
 .alert-notice {
   @extend .alert-info;
 }
+
+.jumbotron {
+  margin: 0 auto;
+  background-color: #94b7b7;
+}

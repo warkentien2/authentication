@@ -4,6 +4,7 @@
 
 inside root directory:<br>
 <tt>$ bundle install</tt><br>
+<tt>$ rake db:migrate RAILS_ENV=development</tt>
 <tt>$ rails server</tt>  
 
 ------------------------
