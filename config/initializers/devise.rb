@@ -1,18 +1,18 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+  config.min_password_score = 0 # don't use this for real apps
+
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
-  # config.secret_key = 'ee264e23cf7d14514fbae79dcb6c230f75dc90829e903078b47c604b06741a288b32e63057a5cdd151510262eabaa90fda9a95c3478b1585f6285a7963384152'
-  config.secret_key = ENV['DEVISE_SECRET_KEY'] if Rails.env.production?
-  # /\ should change secret_key
+  config.secret_key = ENV['devise_key']
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'philip.dw2@gmail.com'
+  config.mailer_sender = 'test@example.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -99,7 +99,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = '3377baf707ed6635cde4798f0e4c4f07657d5df06bf9a12ca4f16ce027e39924f3384142f40758178da758321f3f6479b94ac1a6386945509ea7d53ba2190923'
+  # config.pepper = '33af9f60154b68037d9abe3579c9d92786783e29a9bb090271d10fb6ca9810a7c94634170f38dc2b8dcba61a80afe95ba736ec3f25fd06d603334ae99af9416f'
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -161,7 +161,7 @@ Devise.setup do |config|
   # Defines which strategy will be used to lock an account.
   # :failed_attempts = Locks an account after a number of failed attempts to sign in.
   # :none            = No lock strategy. You should handle locking by yourself.
-  config.lock_strategy = :none
+  config.lock_strategy = :failed_attempts
 
   # Defines which key will be used when locking and unlocking an account
   # config.unlock_keys = [ :email ]
